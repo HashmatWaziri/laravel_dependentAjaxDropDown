@@ -10,35 +10,18 @@ This repo implements the dependent dropdown using Ajax call.
 
 ## DB
 
-import the ajax_DropDown.sql which is inside ##DB
+import the ajax_DropDown.sql which is inside DB
 
-## Ajax script inside views/Albums/index.blade.php
+## Ajax script
 
 
-<script>
-        $('#albums').on('change', function(e) {
-            console.log(e);
-            var album_id = e.target.value;
-            //ajax
-            $.getJSON("/ajax-call?album_id="+album_id, function (data) {
-            //console.log(data);
-                $('#songs').empty();
-                $.each(data, function(index, songsObj){
-                    $('#songs').append('<option value="'+songsObj.id+'">'+songsObj.name+'</option>');
-                });
-            });
-        });
-</script>
+views/Albums/index.blade.php
 
 
 
 ## Ajax Route
 
-Route::get('/ajax-call', function(){
-    $id = Input::get('album_id');
-    $songs = \App\Song::where('album_id', '=', $id )->get();
-    return Response::json($songs);
-});
+routes.php
 
 ### login info
 
