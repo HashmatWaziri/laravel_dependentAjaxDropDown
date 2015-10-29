@@ -7,15 +7,15 @@
 @section("content")
 
 
-{{--<h1> Albums and Songs Ajax dropdown</h1>--}}
+<h1> Albums and Songs Ajax dropdown</h1>
 
 <div class="col-lg-12">
 
     <div class="form-group">
         <label>Albums</label>
-        <select class="form-control input-sm" name="albums" id="albums">
+        <select class="form-control" name="albums" id="albums">
             @foreach($albums as $album)
-                <option value="{{$album->id}}">{{$album->name}}
+                <option value="{{$album->id}}"class="form-control">{{$album->name}}
                 </option>
             @endforeach
         </select>
